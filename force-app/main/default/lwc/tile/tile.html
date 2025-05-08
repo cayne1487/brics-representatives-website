@@ -1,0 +1,13 @@
+<template>
+    <div class="container">
+        <a onclick={tileClick}>
+            <template lwc:if={imageVisibility}>
+                <img class="profile-img" src={representative.Photo_URL__c}></img>
+            </template>
+            <template lwc:else>
+                <div class="profile-alt">Photo is unavailable</div>
+            </template>
+            <div class="title">{representative.Name}</div>
+        </a>
+    </div>
+</template>

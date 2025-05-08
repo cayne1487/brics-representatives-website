@@ -1,0 +1,130 @@
+.dialog-container{
+  display: flex;
+  flex-direction: row;
+  width: 600px;
+}
+
+.profile-image{
+  display: flex;
+  align-self: center;
+  margin: 1em auto;
+  height: 250px;
+  width: 210px;
+  border-radius: 15px;
+}
+
+.topnav {
+    background-color: #333;
+    display: flex;
+    overflow: hidden;
+    justify-content: baseline;
+  }
+
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 30px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .dialog-container label, input, textarea {
+    display: block;
+    width: 100%;
+    border-radius: 0.5em;
+}
+
+dialog{
+  border-radius: 1em;
+  box-shadow: 0 0 1.3em black;
+}
+
+dialog::backdrop {
+  backdrop-filter: blur(3px);
+}
+
+.dialog-container label {
+    text-align: left;
+    margin-top: 10px;
+}
+
+textarea {
+    border-radius: 1em ;
+    margin-top: 10px;
+    resize: none;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+.btn-container > * {
+    width: 40%;
+}
+
+.cancel-button {
+  width: 25px;
+  height: 25px;
+  position: relative;
+  background-color: #d5d6da;
+  margin: auto;
+  border-radius: 0.3em;
+  cursor: pointer;
+  float: right;
+}
+
+
+.cancel-button:before, .cancel-button:after {
+  content: '';
+  width: 110%;
+  height: 3px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: white;
+}
+
+.cancel-button:hover{
+  background-color: white;
+  background: black;
+  border-color: white;
+
+}
+
+.cancel-button:before {
+  -webkit-transform: translate(-50%,-50%) rotate(45deg);
+  transform: translate(-50%,-50%) rotate(45deg);
+}
+
+.cancel-button:after {
+  -webkit-transform: translate(-50%,-50%) rotate(-45deg);
+  transform: translate(-50%,-50%) rotate(-45deg);
+}
+
+.topnav label{
+  display: flex;
+  margin-left: auto;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 30px;
+  text-decoration: none;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.topnav label:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+input[type="file"]{
+  display: none;
+}

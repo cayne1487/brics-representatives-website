@@ -1,0 +1,193 @@
+body {
+  margin: 0;
+} 
+.wrapper{
+  
+  background: #ccc;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  
+}
+
+.header, .footer{
+  height: 50px;
+  background: rgb(255, 255, 255);
+  color: rgb(46, 46, 46);
+  font-size: large;
+  padding: 10px;
+  border: solid #299bcf 2px;
+}
+.content {
+  display: flex;
+  flex: 1;
+  background: #999;
+  color: #000; 
+}
+.columns{
+  display: flex;
+  flex:1;
+}
+.main{
+  padding-top: 10px;
+  flex: 1;
+  order: 2;
+  background: #eee;
+  height: 100%;
+}
+.sidebar-first{
+  width: 20%;
+  background: #ccc;
+  order: 1;
+}
+.sidebar-second{ 
+  overflow-y: auto;
+  height: 100%;
+  width: 30%;
+  order: 3;
+  background: #ddd;
+}
+
+.button{
+  padding: 3px 5px;
+  margin-left: 1em;
+  border: 1px solid black;
+  border-radius: 0.3em;
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+
+.button:hover{
+  background-color: black;
+  color: white;
+  text-decoration: none;
+}
+
+
+input[type="file"]{
+  margin-bottom: 10px;
+  display: none;
+}
+
+
+.dialog-container{
+  display: flex;
+  flex-direction: row;
+  width: 600px;
+}
+
+.profile-image{
+  align-self: center;
+  margin: 1em auto;
+  height: 250px;
+  width: 210px;
+  border-radius: 15px;
+}
+
+.profile-alt{
+  align-self: center;
+  text-align: center;
+  margin: 1em auto;
+  height: 250px;
+  width: 210px;
+  border-radius: 15px;
+  line-height: 250px;
+  border: 1px dashed black;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+.dialog-container label{
+  display: block;
+  width: 100%;
+  border-radius: 0.5em;
+}
+
+.dialog-container input, textarea {
+  display: block;
+  width: 100%;
+  border-radius: 0.5em;
+}
+
+
+dialog{
+border-radius: 1em;
+box-shadow: 0 0 1.3em black;
+}
+
+dialog::backdrop {
+backdrop-filter: blur(3px);
+}
+
+.dialog-container label {
+  text-align: left;
+  margin-top: 10px;
+}
+
+textarea {
+  border-radius: 1em ;
+  margin-top: 10px;
+  resize: none;
+}
+
+.cancel-button {
+  width: 25px;
+  height: 25px;
+  position: relative;
+  background-color: #d5d6da;
+  margin: auto;
+  border-radius: 0.3em;
+  cursor: pointer;
+  float: right;
+}
+
+
+.cancel-button:before, .cancel-button:after {
+  content: '';
+  width: 110%;
+  height: 3px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: white;
+}
+
+.cancel-button:hover{
+  background-color: white;
+  background: black;
+  border-color: white;
+
+}
+
+.cancel-button:before {
+  -webkit-transform: translate(-50%,-50%) rotate(45deg);
+  transform: translate(-50%,-50%) rotate(45deg);
+}
+
+.cancel-button:after {
+  -webkit-transform: translate(-50%,-50%) rotate(-45deg);
+  transform: translate(-50%,-50%) rotate(-45deg);
+}
+
+input[type="file"]{
+  display: none;
+}
+
+.search-bar {
+  margin-bottom: 20px;
+  width: 25em;
+}
+
+.btn-container {
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 40%;
+}
+
+.candidate-buttons-container{
+  float: right;
+}

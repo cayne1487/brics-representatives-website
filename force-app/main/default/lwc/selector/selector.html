@@ -1,0 +1,83 @@
+<template>
+    <div class="wrapper">
+    <header class="header">
+        <input
+         lwc:ref="searchField"
+         type="text"
+         class="search-bar"
+         placeholder="Search candidate and press ENTER..."
+         onkeyup={handleKeyPress}
+        >
+        <a class="button" onclick={handleSearchButton}>Search</a>
+        <template if:true={cancelButtonVisible}>
+            <a class="button" onclick={handleCancelClick}>Cancel</a>
+        </template>
+        <div class="candidate-buttons-container">
+            <a onclick={showDialog} name="candidate dialog" id="candidate-dialog" class="button">Add new candidate</a>
+            <label id="import" class="import-button button">
+                Import candidates from CSV file
+                <input 
+                type="file" 
+                id="csv_upload"
+                name="csv_upload"
+                accept=".csv"
+                onchange={handleFileUpload}/>
+            </label>
+        </div>
+    </header>
+
+    <section class="content">
+        <div class="columns">
+        <main class="main" >
+            <c-list onproductselected={handleRepresentativeSelected}></c-list>
+        </main>
+        <template if:true={detailVisible}>
+            <aside class="sidebar-second">
+                <c-detail representative={selectedRepresentative} onclose={detailClose}></c-detail>
+            </aside>
+        </template>
+        </div>
+    </section>
+    </div>
+    
+    <dialog class="create-dialog">
+        <div class="cancel-container">
+            <button class="cancel-button" onclick={closeDialog}></button>
+        </div>
+        <div class="dialog-container">
+            <form autocomplete="off" onsubmit={handleSubmit}>
+            <label for="first-name">
+                First Name
+                <input type="text" class="first-name" name="first-name" required>
+            </label>
+            <label for="last-name">
+                Last Name
+                <input autocomplete="off" type="text" class="last-name" name="last-name" required>
+            </label>
+            <label for="country">
+                Country
+                <input autocomplete="off" type="text" class="country" name="country" required>
+            </label>
+            <label for="photo-url">
+                Photo URL
+                <input type="text" class="photo-url" name="photo-url" required onkeyup={handleURL}>
+            </label>
+            <textarea class="description" cols="40" rows="4" placeholder="Please add representative's quote" required></textarea>
+    
+            <div class="btn-container">
+                <input type="submit" value="Submit"/>
+            </div>
+    
+        </form>
+        <template if:true={imageVisibility}>
+            <img src={imageLink} alt="" class="profile-image"></img>
+        </template>
+        <template if:false={imageVisibility}>
+            <div class="profile-alt">
+                No photo found!
+            </div>
+        </template>
+      </div>
+    </dialog>
+    <c-snackbar></c-snackbar>
+</template>

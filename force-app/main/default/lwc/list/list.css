@@ -1,0 +1,53 @@
+.container {
+    margin: 0 auto;
+    display: flex ;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 auto;
+    align-items: center;
+    height: 100%;
+    
+}
+
+
+.pagination {
+    margin: 0 auto;
+    display: flex;
+    width: 20%;
+    justify-content: space-between;
+    
+}
+
+a {
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+p{
+    align-self: center;
+}
+
+.sorting-container p{
+    display: inline-block;
+    margin: 0 0.8em;
+}
+
+.sorting-container a{
+    margin-right: 1em;
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+.sorting-container a:hover{
+    color:rgb(133, 133, 133)
+}
+
+.cancel-button{
+    padding: 3px 5px;
+    margin-left: 1em;
+    border: 1px solid black;
+    border-radius: 0.3em;
+}
+

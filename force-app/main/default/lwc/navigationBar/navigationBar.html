@@ -1,0 +1,12 @@
+<template>
+
+    <div class="topnav">
+        <a onclick={handleClick} name="home" id="home">Candidates List</a>
+        <a onclick={handleClick} name="map" id="map">Events Map</a>
+        <a onclick={handleClick} name="contact" id="contact">Contact Us</a>
+    </div>
+
+    <div style="margin-top: 10px;">
+      <c-pages-component click-page={pageClick}></c-pages-component>
+    </div>
+</template>

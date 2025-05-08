@@ -1,0 +1,35 @@
+<template>
+    <div class="outer-container container-h1">
+        <h1>If you are having any technical problems with this website, please contact us by filling out this form</h1>
+    </div>
+    
+    <div class="outer-container">
+        
+        <form action="https://innovation-computing-6538-dev-ed.scratch.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DHE000001F9on" method="POST">
+                
+            
+                <input type=hidden name="orgid" value="00DHE000001F9on">
+                <input type=hidden name="retURL" value="http://innovation-computing-6538-dev-ed.scratch.my.site.com/representatives">
+            
+                <label for="name">Contact Name</label>
+                <input  id="name" maxlength="80" name="name" size="20" type="text" /><br>
+            
+                <label for="email">Email</label>
+                <input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+            
+                <label for="phone">Phone</label>
+                <input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+            
+                <label for="subject">Subject</label>
+                <input  id="subject" maxlength="80" name="subject" size="20" type="text" /><br>
+            
+                <label for="description">Description</label>
+                <textarea name="description"></textarea><br>
+            
+            <input type="hidden"  id="external" name="external" value="1" /><br>
+            
+            <input type="submit" name="submit" value="Submit" class="button">
+            
+            </form>
+    </div>
+    </template>

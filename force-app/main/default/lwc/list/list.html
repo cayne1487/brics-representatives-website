@@ -1,0 +1,36 @@
+<template>
+    <template if:true={representativesList}>
+        <div class="sorting-container">
+            <p>Sort by: </p>
+            <a onclick={handleSort}>Name</a>
+            <a onclick={handleSort}>Country</a>
+            <template if:true={sortingState}>
+                <a class="cancel-button" onclick={clearSearch}>Cancel</a>
+            </template>
+        </div>
+
+        <div class="container">
+            <template for:each={representativesList} for:item="rep">
+                <c-tile 
+                    style="flex: 0 0 27%;"
+                    key={rep.Id} 
+                    representative={rep} 
+                    ontileclick={handleTileClick}>
+                    
+                </c-tile>
+            </template> 
+        </div>
+        
+        <template if:true={paginationState}>
+            <div class="pagination">
+                <a onclick={handlePrev}>&lt;</a>
+                <p>Page {pageNumber}</p>
+                <a onclick={handleNext}>&gt;</a>
+                
+            </div>
+        </template>
+
+        <c-snackbar></c-snackbar>
+        
+    </template>
+</template>

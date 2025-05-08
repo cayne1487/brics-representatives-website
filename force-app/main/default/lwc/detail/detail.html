@@ -1,0 +1,17 @@
+<template>
+        <div class="cancel-container">
+            <button class="cancel-button" onclick={handleClose}></button>
+            
+         </div>
+        <div class="container">
+            <h1 class="name">{_representative.Name}</h1>
+            <h2 class="country">{_representative.Country__c}</h2>
+            <template lwc:if={imageVisibility}>
+                <img class="representative-img" src={_representative.Photo_URL__c}></img>
+            </template>
+            <template lwc:else>
+                <div class="profile-alt">Photo is unavailable</div>
+            </template>
+            <div class="description">{_representative.Description__c}</div>
+        </div>
+</template>

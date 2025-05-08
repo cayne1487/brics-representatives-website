@@ -1,0 +1,99 @@
+ebody{
+  margin: 0;
+} 
+
+.name{
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.country{
+  text-align: center;
+  font-weight: bold;
+  
+}
+
+.representative-img{
+  display: flex;
+  align-self: center;
+  margin: 1em auto;
+  height: 250px;
+  width: 210px;
+  border-radius: 15px;
+}
+
+.profile-alt{
+  align-self: center;
+  margin: 1em auto;
+  text-align: center;
+  height: 250px;
+  width: 210px;
+  border-radius: 15px;
+  line-height: 250px;
+  border: 1px solid black;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.no-person{
+  margin: auto 0;
+  display: flex;
+  align-items: center;
+  height: inherit ;
+  justify-content: center;
+}
+
+.description{
+  display: inline-flexbox;
+  align-self: center;
+  margin: 0 1em;
+  font-style: italic;
+  font-size: medium;
+  
+}
+
+.cancel-container{
+  height: 25px;
+  margin: 10px 10px 0 0 ;
+}
+
+.cancel-button {
+  width: 25px;
+  height: 25px;
+  position: relative;
+  background-color: #d5d6da;
+  border-radius: 0.3em;
+  margin: auto;
+  cursor: pointer;
+  float: right;
+  
+}
+
+
+.cancel-button:before, .cancel-button:after {
+  content: '';
+  width: 110%;
+  height: 3px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: white;
+}
+
+.cancel-button:hover{
+  background-color: white;
+  background: black;
+  border-color: white;
+
+}
+
+.cancel-button:before {
+  -webkit-transform: translate(-50%,-50%) rotate(45deg);
+  transform: translate(-50%,-50%) rotate(45deg);
+}
+
+.cancel-button:after {
+  -webkit-transform: translate(-50%,-50%) rotate(-45deg);
+  transform: translate(-50%,-50%) rotate(-45deg);
+}
