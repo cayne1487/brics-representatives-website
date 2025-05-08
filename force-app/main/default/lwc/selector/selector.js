@@ -76,35 +76,32 @@ export default class Selector extends LightningElement {
         }
     
         handleSubmit(event) {
-            event.preventDefault();
-            if(REGEXP.test(this.photoURL.value)){
-                insertNewRepresentative({
-                    name:this.firstName.value+' '+this.lastName.value, 
-                    description:this.description.value,
-                    photoURL:this.photoURL.value,
-                    country:this.country.value
-                })
-                .then(() => {
-                    this.firstName.value ='';
-                    this.lastName.value ='';
-                    this.country.value ='';
-                    this.description.value ='';
-                    this.photoURL.value ='';
-                    this.imageLink='';
-                    this.createRepDialog.close();
-                    this.template.querySelector('c-snackbar').setSnackbarMessage('Successfully added new representative, please refresh to aplly changes', true);
-                    
-            
+            event.preventDefault(); 
+            insertNewRepresentative({
+                name:this.firstName.value+' '+this.lastName.value, 
+                description:this.description.value,
+                photoURL:this.photoURL.value,
+                country:this.country.value
+            })
+            .then(() => {
+                this.firstName.value ='';
+                this.lastName.value ='';
+                this.country.value ='';
+                this.description.value ='';
+                this.photoURL.value ='';
+                this.imageLink='';
+                this.createRepDialog.close();
+                this.template.querySelector('c-snackbar').setSnackbarMessage('Successfully added new representative, please refresh to aplly changes', true);
+                
         
-                    
-                })
-                .catch((error) => {
-                    this.template.querySelector('c-snackbar').setSnackbarMessage('Failed to add new representative!', false);
-                    console.log(JSON.stringify(error));
-                })
-            }
-                   
     
+                
+            })
+            .catch((error) => {
+                this.template.querySelector('c-snackbar').setSnackbarMessage('Failed to add new representative!', false);
+                console.log(JSON.stringify(error));
+            })         
+
         }
     
         handleClick(event){
