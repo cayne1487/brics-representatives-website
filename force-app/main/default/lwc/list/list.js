@@ -16,6 +16,8 @@ export default class List extends LightningElement {
     sortingState;
     sortingArrowName;
     sortingArrowCountry;
+    sortingArrowNameVisibility;
+    sortingArrowCountryVisibility;
 
 
     async getApexRepresentativeValues(){
@@ -64,6 +66,8 @@ export default class List extends LightningElement {
         this.paginationState=true;
         this.sortingOrder = undefined;
         this.sortingState = false;
+        this.sortingArrowName = '';
+        this.sortingArrowCountry = '';
     }
    
     handleTileClick(evt) {
@@ -127,7 +131,7 @@ export default class List extends LightningElement {
     handleSort(event){
         this.sortingState = true;
         this.sortingList = [...this.representativesFromApex];
-        if(event.target.innerText==='Name'){
+        if(event.target.name==='name'){
             this.sortingList.sort((rep1, rep2) =>{
                 if (rep1.Name < rep2.Name) {
                     return -1
@@ -136,8 +140,10 @@ export default class List extends LightningElement {
                 }
                 return 0
             });
+            this.sortingArrowNameVisibility = true;
+            this.sortingArrowCountryVisibility = false;
         }
-        else{
+        else if (event.target.name==='country'){
             this.sortingList.sort((rep1, rep2) =>{
                 if (rep1.Country__c < rep2.Country__c) {
                     return -1
@@ -146,13 +152,30 @@ export default class List extends LightningElement {
                 }
                 return 0
             });
+            this.sortingArrowCountryVisibility = true;
+            this.sortingArrowNameVisibility = false;
         }
-        if(!this.sortingOrder){
-            
+        if(!this.sortingOrder && this.sortingArrowNameVisibility === true){
+            this.sortingArrowName = '↓';
+            this.sortingArrowCountry = '';
             this.representativesList=this.sortingList.slice(pageBegin, pageEnd);
             this.sortingOrder = true;
         }
-        else{
+        else if(this.sortingOrder && this.sortingArrowNameVisibility === true){
+            this.sortingArrowName = '↑';
+            this.sortingArrowCountry = '';
+            this.representativesList=this.sortingList.reverse().slice(pageBegin, pageEnd);
+            this.sortingOrder = false;
+        }
+        else if(!this.sortingOrder && this.sortingArrowCountryVisibility === true){
+            this.sortingArrowCountry = '↓';
+            this.sortingArrowName = '';
+            this.representativesList=this.sortingList.slice(pageBegin, pageEnd);
+            this.sortingOrder = true;
+        }
+        else if(this.sortingOrder && this.sortingArrowCountryVisibility === true){
+            this.sortingArrowCountry = '↑';
+            this.sortingArrowName = '';    
             this.representativesList=this.sortingList.reverse().slice(pageBegin, pageEnd);
             this.sortingOrder = false;
         }
