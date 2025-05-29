@@ -33,7 +33,6 @@ export default class Selector extends LightningElement {
 
     handleRepresentativeSelected(evt) {
         this.selectedRepresentative = evt.detail;
-
         this.detailVisible = true;
     }
 
@@ -67,12 +66,12 @@ export default class Selector extends LightningElement {
 
     closeDialog() {
         this.createRepDialog.close();
-        this.firstName.value ='';
-        this.lastName.value ='';
-        this.country.value ='';
-        this.description.value ='';
-        this.photoURL.value ='';
-        this.imageLink='';
+        this.firstName.value = '';
+        this.lastName.value = '';
+        this.country.value = '';
+        this.description.value = '';
+        this.photoURL.value = '';
+        this.imageLink = '';
     }
 
     handleSubmit(event) {
@@ -84,22 +83,17 @@ export default class Selector extends LightningElement {
             country:this.country.value
         })
         .then(() => {
-            this.firstName.value ='';
-            this.lastName.value ='';
-            this.country.value ='';
-            this.description.value ='';
-            this.photoURL.value ='';
-            this.imageLink='';
+            this.firstName.value = '';
+            this.lastName.value = '';
+            this.country.value = '';
+            this.description.value = '';
+            this.photoURL.value = '';
+            this.imageLink= '';
             this.createRepDialog.close();
-            this.template.querySelector('c-snackbar').setSnackbarMessage('Successfully added new representative, please refresh to aplly changes', true);
-            
-    
-
-            
+            this.template.querySelector('c-snackbar').setSnackbarMessage('Successfully added new representative, please refresh to aplly changes', true);      
         })
-        .catch((error) => {
+        .catch(() => {
             this.template.querySelector('c-snackbar').setSnackbarMessage('Failed to add new representative!', false);
-            console.log(JSON.stringify(error));
         })         
 
     }
@@ -112,16 +106,14 @@ export default class Selector extends LightningElement {
 
         if(REGEXP.test(event.currentTarget.value)){
             this.imageVisibility = true;
-            this.imageLink=event.currentTarget.value;
-        }
-        else{
+            this.imageLink = event.currentTarget.value;
+        } else{
             this.imageVisibility = false;
         }
     }
 
-    
     handleFileUpload(event){
-        const REGEX = new RegExp('(.*?).(csv)$', 'i');
+        const REGEX = /(.*?)\.(csv)$/;
         const file = event.target.files[0];
         let text;
         if(file && REGEX.test(file.name)){
@@ -129,13 +121,10 @@ export default class Selector extends LightningElement {
             reader.onload = function (e) {
                 text = e.target.result;
                 importRepresentatives({inputText:text});
-                
-                
-                }
-                reader.readAsText(file);
-                this.template.querySelector('c-snackbar').setSnackbarMessage('Successfully added representative(s), please refresh to aplly changes', true);
-        }
-        else{
+            }
+            reader.readAsText(file);
+            this.template.querySelector('c-snackbar').setSnackbarMessage('Successfully added representative(s), please refresh to aplly changes', true);
+        } else{
             this.template.querySelector('c-snackbar').setSnackbarMessage('File not found, or format is not valid',false);
         }
 

@@ -1,7 +1,6 @@
 public with sharing class CreateRepresentativesController {
     
     @AuraEnabled
-    @future
     public static void insertNewRepresentative(String name, String description, String photoURL, String country) {
         Representative__c representative = new Representative__c();
         representative.Name = name;
