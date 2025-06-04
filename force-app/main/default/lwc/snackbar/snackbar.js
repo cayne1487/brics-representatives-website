@@ -6,18 +6,14 @@ export default class Snackbar extends LightningElement {
 
     @api
     setSnackbarMessage(value, isSuccess) {
-        let snackbar=this.template.querySelector('.snackbar');
+        let snackbar = this.template.querySelector('.snackbar');
         this.snackbarMessage = value;
-        if(isSuccess){
-            snackbar.style.backgroundColor='#11e911';
+        if(isSuccess) {
+            snackbar.style.backgroundColor = '#11e911';
+        } else {
+            snackbar.style.backgroundColor = '#e91130';
         }
-
-         else{
-            snackbar.style.backgroundColor='#e91130';
-        }
-
         snackbar.classList.add('show');
-      
         setTimeout(() => {
             snackbar.classList.remove('show');
         }, 3000);

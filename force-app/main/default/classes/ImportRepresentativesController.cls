@@ -1,4 +1,10 @@
-public with sharing class ImportRepresentativesController {
+public without sharing class ImportRepresentativesController {
+
+    static final Integer FIRST_NAME_INDEX = 0;
+    static final Integer LAST_NAME_INDEX = 1;
+    static final Integer COUNTRY_INDEX = 2;
+    static final Integer DESCRIPTION_INDEX = 3;
+    static final Integer PHOTO_URL_INDEX = 4;
     @AuraEnabled
     @future
     public static void importRepresentatives (String inputText) {
@@ -10,10 +16,10 @@ public with sharing class ImportRepresentativesController {
             for(Integer i = 1 ; i < csvLines.size() ; i++){
                 Representative__c representative = new Representative__c();
                 insertionValues = csvLines[i].split(',');
-                representative.Name = insertionValues[0]+' '+insertionValues[1];
-                representative.Country__c = insertionValues[2];
-                representative.Description__c=insertionValues[3];
-                representative.Photo_URL__c=insertionValues[4];
+                representative.Name = insertionValues[FIRST_NAME_INDEX]+' '+insertionValues[LAST_NAME_INDEX];
+                representative.Country__c = insertionValues[COUNTRY_INDEX];
+                representative.Description__c=insertionValues[DESCRIPTION_INDEX];
+                representative.Photo_URL__c=insertionValues[PHOTO_URL_INDEX];
                 representativesList.add(representative);
             }
             insert representativesList;

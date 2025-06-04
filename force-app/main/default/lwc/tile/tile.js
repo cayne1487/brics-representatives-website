@@ -14,12 +14,9 @@ export default class Tile extends LightningElement {
 
 
     tileClick() {
-        console.log(this.representative);
         const event = new CustomEvent('tileclick', {
-            
             detail: this.representative
-        });
-        
+        });  
         this.dispatchEvent(event);
     }
 }

@@ -1,9 +1,8 @@
 import { LightningElement, api} from 'lwc';
 const REGEXP = /(https?:\/\/.*\.(?:png|jpg))/;
 export default class Detail extends LightningElement {
-    imageVisibility
+    imageVisibility = false;
     _representative;
-    
     
     set representative(value){
         this._representative = value;
@@ -20,7 +19,6 @@ export default class Detail extends LightningElement {
         return this._representative;
     }
     
-
     handleClose(){
         this.dispatchEvent(new CustomEvent('close'));
     }

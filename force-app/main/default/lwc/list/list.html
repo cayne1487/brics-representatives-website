@@ -2,8 +2,8 @@
     <template if:true={representativesList}>
         <div class="sorting-container">
             <p>Sort by: </p>
-            <a onclick={handleSort}>Name</a>
-            <a onclick={handleSort}>Country</a>
+            <a onclick={handleSort} name="name">Name{sortingArrowName}</a>
+            <a onclick={handleSort} name="country">Country{sortingArrowCountry}</a>
             <template if:true={sortingState}>
                 <a class="cancel-button" onclick={clearSearch}>Cancel</a>
             </template>

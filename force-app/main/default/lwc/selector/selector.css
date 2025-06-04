@@ -188,6 +188,18 @@ input[type="file"]{
   width: 40%;
 }
 
+.submit-button{
+  background-color: #d5d6da;
+  border-radius: 0.3em;
+  cursor: pointer;
+}
+
+.submit-button:hover{
+  background-color: black;
+  color: white;
+  border-color: black;
+}
+
 .candidate-buttons-container{
   float: right;
 }

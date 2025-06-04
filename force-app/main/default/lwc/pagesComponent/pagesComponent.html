@@ -1,11 +1,11 @@
 <template>
-     <template if:true = {homePage}>
+     <template if:true = {homePageVisible}>
         <c-selector></c-selector>
      </template>
-     <template if:true = {contactPage}>
+     <template if:true = {contactPageVisible}>
         <c-web-to-case-page></c-web-to-case-page>
      </template>
-     <template if:true = {mapPage}>
+     <template if:true = {mapPageVisible}>
       <c-events-map></c-events-map>
    </template>
                 

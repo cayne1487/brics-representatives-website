@@ -1,4 +1,4 @@
-public with sharing class ParseRepresentativesData {
+public without sharing class ParseRepresentativesData {
     @AuraEnabled(cacheable=true)
     public static List<Representative__c> returnRepsList(){
         return [
@@ -8,7 +8,6 @@ public with sharing class ParseRepresentativesData {
                 Description__c,
                 Country__c
             FROM Representative__c 
-            WITH SECURITY_ENFORCED
         ];
         
     }
