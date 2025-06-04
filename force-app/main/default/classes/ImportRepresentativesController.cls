@@ -1,4 +1,4 @@
-public with sharing class ImportRepresentativesController {
+public without sharing class ImportRepresentativesController {
 
     static final Integer FIRST_NAME_INDEX = 0;
     static final Integer LAST_NAME_INDEX = 1;
